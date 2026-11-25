@@ -1817,8 +1817,10 @@ private:
             startDate = askDate(" Start date (MM/DD/YYYY) : ");
         }
         string endDate = askDate(" End date (MM/DD/YYYY) : ");
-        while (convertDate(endDate) <= convertDate(startDate)) {
-            cout << "  ! The end date must be after the start date.\n";
+
+        while (convertDate(endDate) <= todayNumber() ||
+        convertDate(endDate) <= convertDate(startDate)) {
+            cout << "  ! End date must be after today and after the start date.\n";
             endDate = askDate(" End date (MM/DD/YYYY) : ");
         }
 
@@ -1947,7 +1949,7 @@ private:
         string parts[4];
         parts[0] = askOptionalText("   Street name (optional) : ");
         parts[1] = askOptionalText("   Subdivision/Building name (optional) : ");
-        parts[2] = askOptionalText("   Barangay name (optional) : ");
+        parts[2] = askText("   Barangay name : ", false);
         parts[3] = askText("   City/Municipality : ", false);
         string address = "";
         for (int i = 0; i < 4; i++) {
