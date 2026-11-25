@@ -7,13 +7,15 @@ int main()
     CustomerSystem customer;
     MovieSystem movie;
 
+    const string mainMenuItems[3] = {"Customer", "Manager", "Exit"};
+    const string managerMenuItems[5] = {"Customer Block", "Movie Block", "Cinema Block", "Booking Block", "Back"};
+    const string customerMenuItems[3] = {"Customer Block", "Booking Block", "Back"};
+    
     int wrongCodes = 0; // wrong manager codes entered so far
     int roleChoice = 0; // 1 = customer, 2 = manager, 3 = exit
     bool isManager = false;
     bool userChosen = false;
-    const string mainMenuItems[3] = {"Customer", "Manager", "Exit"};
-    const string managerMenuItems[5] = {"Customer Block", "Movie Block", "Cinema Block", "Booking Block", "Back"};
-    const string customerMenuItems[3] = {"Customer Block", "Booking Block", "Back"};
+    
     // ---------- START: ask if the user is a manager or a customer ----------
     do
     {
